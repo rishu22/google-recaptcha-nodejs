@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Google-recapcha-nodejs </title>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+  </head>
+  <style>
+  body{
+	background-color:grey;
+  }
+	h1{
+	color:orange;
+	
+	}
+	.button{
+		background-color:black;
+		color:white;
+		font-size:20px;
+		border:2px white;
+		
+	}
+  </style>
+  <body>
+  
+    <center>
+	<h1><u>GOOGLE RECAPTCHA USING NODE.JS</u></h1>
+	
+      <form id="comment" action='/submit' method="post">
+	  <label>Email Address:</label><br>
+      <input type="email" placeholder="Type your email" size="38"><br><br>
+	  <label>Comment:</label><br>
+      <textarea name="comment" placeholder="Enter your comments here..." rows="8" cols="39"></textarea><br><br>
+	  
+      <div class="g-recaptcha" data-sitekey="6LefRXwUAAAAAC4Tfjk6klix07z9Ki6Jr3OuTaHq"></div><br>
+      <input type="submit" name="submit" class="button" value="Post comment"><br><br>
+    </form>
+	</center>
+	
+  </body>
+  
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
+  
+  <script>
+    $(document).ready(function() {
+      $('#comment').submit(function() {
+        $(this).ajaxSubmit({
+          error: function(abc) {
+            status('Error: ' + abc.status);
+          },
+         success: function(response) {
+          console.log(response);
+         }
+        });
+        return false;
+      });
+    });
+  </script>
+</html>
