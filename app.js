@@ -16,7 +16,7 @@ app.post('/submit',function(req,res){
     return res.json({"responseCode" : 1,"responseDesc" : "Please select captcha"});
   }
  
-  var secretKey = "6LefRXwUAAAAALbVUfZ5c9RovzunGv2G2P8-FpXJ";
+  var secretKey = "--your secret key--";
  
   var verificationUrl = "https://www.google.com/recaptcha/api/siteverify?secret=" + secretKey + "&response=" + req.body['g-recaptcha-response'] + "&remoteip=" + req.connection.remoteAddress;
 
